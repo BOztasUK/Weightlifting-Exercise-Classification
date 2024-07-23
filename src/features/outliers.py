@@ -5,6 +5,7 @@ import math
 import scipy
 from sklearn.neighbors import LocalOutlierFactor
 from src.utils import plot_binary_outliers
+from sklearn.ensemble import IsolationForest
 
 
 df = pd.read_pickle("../../data/interim/01_data_processed.pkl")
@@ -148,9 +149,6 @@ for col in outlier_columns:
 
 
 ## Testing IsolationForest as an outlier detector
-from sklearn.ensemble import IsolationForest
-
-
 def mark_outliers_isolation_forest(dataset, columns, n=0.1):
 
     dataset = dataset.copy()
@@ -186,6 +184,8 @@ def mark_outliers_gaussian(dataset, col, threshold=3):
         pd.DataFrame: The original dataframe with an extra boolean column
         indicating whether the value is an outlier or not.
     """
+    dataset = dataset.copy()
+
     mean = dataset[col].mean()
     std = dataset[col].std()
     z_scores = (dataset[col] - mean) / std
@@ -198,3 +198,34 @@ for col in outlier_columns:
     plot_binary_outliers(
         dataset=dataset, col=col, outlier_col=col + "_outlier", reset_index=True
     )
+
+
+# 'bench', 'ohp', 'squat', 'dead', 'row', 'rest'
+label = "bench"
+
+for col in outlier_columns:
+    dataset = mark_outliers_chauvenet(df[df["label"] == label], col)
+    plot_binary_outliers(
+        dataset=dataset, col=col, outlier_col=col + "_outlier", reset_index=True
+    )
+
+for col in outlier_columns:
+    dataset = mark_outliers_gaussian(df[df["label"] == label], col)
+    plot_binary_outliers(
+        dataset=dataset, col=col, outlier_col=col + "_outlier", reset_index=True
+    )
+
+
+outliers_removed_df = df.copy()
+for col in outlier_columns:
+    for label in df["label"].unique():
+        dataset = mark_outliers_chauvenet(df[df["label"] == label], col)
+        dataset.loc[dataset[col + "_outlier"], col] = np.nan
+        outliers_removed_df.loc[(outliers_removed_df["label"] == label), col] = dataset[
+            col
+        ]
+        n_outliers = len(dataset) - len(dataset[col].dropna())
+        print(f"Removed {n_outliers} from {col} for {label}")
+
+
+outliers_removed_df.to_pickle("../../data/interim/02_removed_outliers_dataset.pkl")
