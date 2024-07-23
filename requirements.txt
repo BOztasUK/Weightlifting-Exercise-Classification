@@ -7,4 +7,6 @@ jupyter-client
 jupyter-core
 matplotlib
 ipykernel
+scikit-learn
+scipy
 # -e .
