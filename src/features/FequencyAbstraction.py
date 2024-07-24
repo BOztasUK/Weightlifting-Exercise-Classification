@@ -1,6 +1,10 @@
 import numpy as np
 
 
+# Hoogendoorn, M & Funk, B 2018, Machine Learning for the Quantified Self: On the Art of Learning from Sensory Data.
+# Cognitive Systems Monographs (COSMOS), vol. 35, Springer. https://doi.org/10.1007/978-3-319-66308-1
+
+
 # This class performs a Fourier transformation on the data to find frequencies that occur
 # often and filter noise.
 class FourierTransformation:

@@ -4,6 +4,9 @@ from sklearn.decomposition import PCA
 from scipy.signal import butter, lfilter, filtfilt
 from sklearn.preprocessing import StandardScaler
 
+# Hoogendoorn, M & Funk, B 2018, Machine Learning for the Quantified Self: On the Art of Learning from Sensory Data.
+# Cognitive Systems Monographs (COSMOS), vol. 35, Springer. https://doi.org/10.1007/978-3-319-66308-1
+
 
 # Smoothens the curve
 # http://stackoverflow.com/questions/12093594/how-to-implement-band-pass-butterworth-filter-with-scipy-signal-butter

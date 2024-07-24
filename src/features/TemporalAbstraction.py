@@ -1,6 +1,9 @@
 import numpy as np
 import scipy.stats as stats
 
+# Hoogendoorn, M & Funk, B 2018, Machine Learning for the Quantified Self: On the Art of Learning from Sensory Data.
+# Cognitive Systems Monographs (COSMOS), vol. 35, Springer. https://doi.org/10.1007/978-3-319-66308-1
+
 
 # Class to abstract a history of numerical values we can use as an attribute.
 class NumericalAbstraction:
