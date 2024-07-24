@@ -1,30 +1,29 @@
-##Predicting House Prices with Machine Learning
-Project Description: This project involves processing, visualising, and modelling accelerometer and gyroscope data from a sensor to create a machine learning model that can classify weightlifiting exercises. 
+# Classifying Weightlifting Exercises
 
+**Project Description**: This project involves processing, visualising, and modelling real accelerometer and gyroscope data from a sensor to create a machine learning model that can classify weightlifting exercises.
 
+## Overview
 
-#Key Features:
+- **Data Ingestion and Visualisation**: Process raw sensor data, combining accelerometer and gyroscope data into a single dataframe. Then plot combined accelerometer and gyroscope data for each participant and label.
 
-- Data Cleaning and Preprocessing: Handled missing values and performed feature engineering to improve model performance.
-- Model Selection and Training: Compared several regression models, including Linear Regression, Decision Trees, and Random Forests.
-- Hyperparameter Tuning: Used GridSearchCV to find the best hyperparameters for the Random Forest model.
-- Model Evaluation: Evaluated the models using various metrics like RMSE, MAE, and R-squared.
-- Visualization: Created visualizations to show the distribution of house prices, feature importance, and model performance.
+- **Outlier Removal**: Outlier detection using various methods (IQR, ***Chauvenet's criterion***, LOF, Isolation Forest, and Gaussian distribution), visualising the detected outliers, and removing them.
 
-#Challenges and Learnings:
+- **Feature Engineering**: Applied various feature engineering techniques, including low-pass filtering, Principal Component Analysis (PCA), Fourier transformation, and K-means clustering, to enhance the dataset by capturing relevant patterns and structures.
 
-- Learned how to handle categorical data and scale numerical features.
-Understood the importance of feature selection and its impact on model performance.
-- Gained experience with hyperparameter tuning to optimize model performance.
-Source and Inspiration:
+- **Model Selection, Training, and Hyperparameter Tuning**: Train and evaluate various classification models (Neural Network, ***Random Forest***, KNN, Decision Tree, Naive Bayes), using different sets of features and hyperparameter tuning (GridSearchCV) to identify the best-performing model and feature set.
 
-#Future Work:
+- **Model Evaluation**: 
+  - **Full Dataset Evaluation**: Assess the Random Forest model's performance using the complete dataset, which includes all participants' data in both the training and test sets. Metrics used for evaluation include accuracy and a confusion matrix.
+  - **Participant Exclusion Evaluation**: Exclude one participant from the dataset, train the model on the remaining participants' data, and evaluate its performance on the excluded participant. This assessment also utilises accuracy and a confusion matrix to measure performance.
 
-- Plan to deploy the model as a web application using Flask.
-- Explore more advanced techniques like XGBoost and neural networks for improved performance.
+## Data Visualisation Example of Participant A Doing Bench Press
+![Participant A Bench Press](reports/figures/Bench%20(A).png)
 
+## Model's Performance on Different Feature Sets
+![Model's Performance on Different Feature Sets](reports/figures/Model_Featureset_Comparison.png)
 
-![Model's Performance's on different feature sets](../Fitness%20Tracker%20Project/reports/figures/Model_Featureset_Comparison.png)
+## Confusion Matrix on the Whole Dataset
+![Confusion Matrix](reports/figures/Confusion_Matrix_RF_Model.png)
 
-![Model's Performance on different feature sets](reports/figures/Model_Featureset_Comparison.png)
-
+## Confusion Matrix Predicting for Participant A Using the Rest of the Participants' Data
+![Confusion Matrix](reports/figures/Confusion_Matrix_RF_Participant_Based.png)
