@@ -1,5 +1,7 @@
 ##Predicting House Prices with Machine Learning
-Project Description: This project involves predicting house prices using a machine learning model. 
+Project Description: This project involves processing, visualising, and modelling accelerometer and gyroscope data from a sensor to create a machine learning model that can classify weightlifiting exercises. 
+
+
 
 #Key Features:
 
@@ -20,3 +22,6 @@ Source and Inspiration:
 
 - Plan to deploy the model as a web application using Flask.
 - Explore more advanced techniques like XGBoost and neural networks for improved performance.
+
+
+![Model's Performance's on different feature sets](/Users/berkan_oztas/Fitness Tracker Project/reports/figures/Model_Featureset_Comparison).png)
