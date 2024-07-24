@@ -24,4 +24,7 @@ Source and Inspiration:
 - Explore more advanced techniques like XGBoost and neural networks for improved performance.
 
 
-![Model's Performance's on different feature sets](/Users/berkan_oztas/Fitness Tracker Project/reports/figures/Model_Featureset_Comparison).png)
+![Model's Performance's on different feature sets](../Fitness%20Tracker%20Project/reports/figures/Model_Featureset_Comparison.png)
+
+![Model's Performance on different feature sets](reports/figures/Model_Featureset_Comparison.png)
+
